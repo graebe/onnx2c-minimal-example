@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import onnx
 import onnxruntime
 import os
+from time import monotonic
 
 device = torch.device("cpu")
 dtype = torch.float
@@ -35,7 +36,7 @@ model = ffnn()
 
 pred_before = model(x)
 l = loss(pred_before, y)
-print("Loss before training is: {}".format(l))
+# print("Loss before training is: {}".format(l))
 
 for i in range(epochs):
     #print("epoch: {}".format(i + 1))
@@ -50,9 +51,11 @@ for i in range(epochs):
             param -= lr * param.grad
 
 model.eval()
+tstart_torch = monotonic() # start execution timer
 pred_after = model(x)
+tend_torch = monotonic() # end execution timer
 l = loss(pred_after, y)
-print("Loss after training is: {}".format(l))
+#print("Loss after training is: {}".format(l))
 
 plt.figure()
 plt.plot(x, y, label='ref')
@@ -84,11 +87,19 @@ with open(os.path.join(export_dir, 'FFNN_printable.onnx'), 'w') as f:
 
 session = onnxruntime.InferenceSession(os.path.join(export_dir, export_name), None)
 input_name = session.get_inputs()[0].name  
-print('Input Name:', input_name)
+#print('Input Name:', input_name)
 x_np = x.detach().numpy()
+tstart_onnx = monotonic() # start execution timer
 output_onnx = session.run([], {input_name: x_np[[0]]})[0]
+tend_onnx = monotonic() # end execution timer
 output_pytorch = model(x[[0]]).detach().numpy()
 
-print("Pytorch: {} / ONNX Runtime: {} / Difference: {}".format(output_pytorch, output_onnx, output_pytorch - output_onnx))
+# Calculate execution times
+t_torch = tend_torch - tstart_torch
+t_onnx = tend_onnx - tstart_onnx
 
-print("Debug")
+print("\n----------------------------------");
+print("| Executing Python Code for FFNN |");
+print("----------------------------------");
+
+print("   Pytorch: {} mus \n   ONNX Runtime: {} mus\n".format(t_torch*1000000, t_onnx*1000000))
