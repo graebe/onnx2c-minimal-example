@@ -14,5 +14,5 @@ RUN cd onnx2c && git submodule update --init
 # Build onnx2c
 RUN mkdir /onnx2c/build && cd /onnx2c/build && cmake /onnx2c && make onnx2c
 
-# Install python packages
-RUN pip install -r 
+# Extend Path
+ENV PATH /onnx2c/build:$PATH
