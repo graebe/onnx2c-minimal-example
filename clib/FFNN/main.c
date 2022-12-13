@@ -10,9 +10,9 @@ int main () {
     float input[1][1] = {{3}};
     float output[1][1] = {{0}};
     
-    printf("\n-----------------------------------\n");
+    printf("\n------------------------------------\n");
     printf("| Executing C-Code Binary for FFNN |\n");
-    printf("-----------------------------------\n");
+    printf("------------------------------------\n");
     //printf("   Values before execution:\n");
     //printf("      Input: %f, Output: %f\n", input[0][0], output[0][0]);
     tstart = clock();
