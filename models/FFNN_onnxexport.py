@@ -63,7 +63,7 @@ plt.grid()
 plt.title("Neural Network Fit")
 
 export_dir = "exports/onnx"
-export_name = "model.onnx"
+export_name = "FFNN.onnx"
 if not os.path.exists(export_dir):
     os.makedirs(export_dir)
 torch.onnx.export(model,
@@ -76,10 +76,10 @@ torch.onnx.export(model,
 
 model_onnx = onnx.load(os.path.join(export_dir, export_name))
 
-with open(os.path.join(export_dir, 'model_str.onnx'), 'w') as f:
+with open(os.path.join(export_dir, 'FFNN_str.onnx'), 'w') as f:
     f.write(model_onnx.__str__())
 
-with open(os.path.join(export_dir, 'model_printable.onnx'), 'w') as f:
+with open(os.path.join(export_dir, 'FFNN_printable.onnx'), 'w') as f:
     f.write(onnx.helper.printable_graph(model_onnx.graph))
 
 session = onnxruntime.InferenceSession(os.path.join(export_dir, export_name), None)
