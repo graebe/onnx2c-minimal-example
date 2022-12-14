@@ -21,7 +21,7 @@ The benchmarks were performed on a Macbook Pro 2021 (M1).
 
 | Model                  |Wall Time Pytorch      |  Wall Time ONNX  |  Wall Time C    |
 |:-----------------------|----------------------:|-----------------:|----------------:|
-|Feed-Forward NN.        |           3908.99 mus |       498.70 mus |       36.00 mus |
-|MobilnetV2              |          34766.20 mus |     23331.70 mus |  2104377.00 mus |
+|Feed-Forward NN         |           2515.45 mus |       388.04 mus |       18.00 mus |
+|MobilnetV2              |          25823.16 mus |     17536.99 mus |  2033580.00 mus |
 
 Compilations for real-time targets (with other models) have been performed in the original repo (https://github.com/kraiskil/onnx2c).
