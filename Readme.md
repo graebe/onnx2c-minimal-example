@@ -1,12 +1,12 @@
-## ONNX2C Minimal Examples
+# ONNX2C Minimal Examples
 
 This repository implements minimal examples for the python package onnx2c (https://github.com/kraiskil/onnx2c). You can use it as an implementation example and get a feeling for the execution performance of the compiled code. I will also include my own benchmarks in the Readme.md.
 
-# Prerequisites
+## Prerequisites
 
 This repo has been developed in a docker container specified in the folder .devcontainer. You can run it locally in visual studio code with the VSC Container Dev extension (Docker is prerequisite). Another option is to use github codespaces.
 
-# Run
+## Run
 
 Use the scripts to generate and compile reference models (*_build.sh). They perform the following steps:
 
@@ -15,7 +15,7 @@ Use the scripts to generate and compile reference models (*_build.sh). They perf
 3. Translate to C-Code with onnx2c
 4. Execute Benchmarks and print results
 
-# Benchmarks
+## Benchmarks
 
 The benchmarks were performed on a Macbook Pro 2021 (M1).
 
