@@ -14,4 +14,4 @@ cd clib/MobilnetV2
 make
 
 # Execute binary and print runtime
-./FMobilnetV2
+./MobilnetV2
