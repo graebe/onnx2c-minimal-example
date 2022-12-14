@@ -1,3 +1,6 @@
 exports
 
+clib/FFNN/FFNN
+clib/MobilnetV2/MobilnetV2
+
 .DS_Store

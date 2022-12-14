@@ -8,26 +8,28 @@ void entry(const float tensor_input[1][3][512][120], float tensor_output[1][1]);
 int main () {
     clock_t tstart=0;
     clock_t tend=0;
+	float output[1][1] = {{-1.0}};
     float input[1][3][512][120];
-    for (int i=0; i<3; i++) {
-        for (int j=0; j<512; j++) {
-            for (int k=0; k<120; k++) {
-                input[0][i][j][k] = rand();
-            }
-        }
-    }
-    float output[1][1] = {{0}};
+    //for (int i=0; i<3; i++) {
+    //    for (int j=0; j<512; j++) {
+    //        for (int k=0; k<120; k++) {
+    //            input[0][i][j][k] = rand();
+    //        }
+    //    }
+    //}
     
-    printf("\n---------------------------------------\n");
+    printf("\n------------------------------------------\n");
     printf("| Executing C-Code Binary for MobilnetV2 |\n");
-    printf("---------------------------------------\n");
+    printf("------------------------------------------\n");
     printf("   Values before execution:\n");
-    printf("      Input: %f, Output: %f\n", input[0][0], output[0][0]);
+    printf("      Input: %lf\n", input[0][0]);
+	printf("      Output: %lf\n", output[0][0]);
     tstart = clock();
     entry(input, output);
     tend = clock();
     printf("   Values after execution:\n");
-    printf("      Input: %f, Output: %f\n", input[0][0], output[0][0]);
+    printf("      Input: %lf\n", input[0][0]);
+	printf("      Output: %lf\n", output[0][0]);
     printf("    Wall Time: %lf mus\n\n",(double)(tend-tstart)/CLOCKS_PER_SEC*1000000);
 }
 

@@ -58,7 +58,7 @@ t_torch = tend_torch - tstart_torch
 t_onnx = tend_onnx - tstart_onnx
 
 # Print ececution times
-print("\n----------------------------------");
-print("| Executing Python Code for FFNN |");
-print("----------------------------------");
+print("\n-------------------------------------");
+print("| Executing Python Code for MobilnetV2 |");
+print("-------------------------------------");
 print("   Pytorch: {} mus \n   ONNX Runtime: {} mus\n".format(t_torch*1000000, t_onnx*1000000))

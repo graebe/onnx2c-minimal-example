@@ -13,13 +13,15 @@ int main () {
     printf("\n------------------------------------\n");
     printf("| Executing C-Code Binary for FFNN |\n");
     printf("------------------------------------\n");
-    //printf("   Values before execution:\n");
-    //printf("      Input: %f, Output: %f\n", input[0][0], output[0][0]);
+    printf("   Values before execution:\n");
+    printf("      Input: %lf\n", input[0][0]);
+	printf("      Output: %lf\n", output[0][0]);
     tstart = clock();
     entry(input, output);
     tend = clock();
-    //printf("   Values after execution:\n");
-    //printf("      Input: %f, Output: %f\n", input[0][0], output[0][0]);
+    printf("   Values after execution:\n");
+    printf("      Input: %lf\n", input[0][0]);
+	printf("      Output: %lf\n", output[0][0]);
     printf("    Wall Time: %lf mus\n\n",(double)(tend-tstart)/CLOCKS_PER_SEC*1000000);
 }
 
