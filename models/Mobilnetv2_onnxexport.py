@@ -14,7 +14,7 @@ model = torchvision.models.mobilenet_v2(num_classes=1)
 # Generate dummy spectrogram
 n_fft = 512
 n_spec = 120
-n_channels = 1
+n_channels = 3
 n_samples = 1
 x = rand(n_samples, n_channels, n_fft, n_spec)
 x_tensor = torch.from_numpy(x).float()
@@ -51,7 +51,7 @@ x_np = x_tensor.detach().numpy()
 tstart_onnx = monotonic() # start execution timer
 output_onnx = session.run([], {input_name: x_np[[0]]})[0]
 tend_onnx = monotonic() # end execution timer
-output_pytorch = model(x[[0]]).detach().numpy()
+output_pytorch = model(x_tensor[[0]]).detach().numpy()
 
 # Calculate execution times
 t_torch = tend_torch - tstart_torch
