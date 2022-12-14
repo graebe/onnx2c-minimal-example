@@ -10,13 +10,13 @@ int main () {
     clock_t tend=0;
 	float output[1][1] = {{-1.0}};
     float input[1][3][512][120];
-    //for (int i=0; i<3; i++) {
-    //    for (int j=0; j<512; j++) {
-    //        for (int k=0; k<120; k++) {
-    //            input[0][i][j][k] = rand();
-    //        }
-    //    }
-    //}
+    for (int i=0; i<3; i++) {
+        for (int j=0; j<512; j++) {
+            for (int k=0; k<120; k++) {
+                input[0][i][j][k] = rand();
+            }
+        }
+    }
     
     printf("\n------------------------------------------\n");
     printf("| Executing C-Code Binary for MobilnetV2 |\n");

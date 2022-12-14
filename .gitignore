@@ -2,5 +2,7 @@ exports
 
 clib/FFNN/FFNN
 clib/MobilnetV2/MobilnetV2
+clib/CNN_3layers/CNN_3layers
+clib/CNN_minimal/CNN_minimal
 
 .DS_Store
