@@ -19,7 +19,8 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-python.pylint",
-				"dakara.dakara-foldplus"
+				"dakara.dakara-foldplus",
+				"zxh404.vscode-proto3"
 			]
 		}
 	},
