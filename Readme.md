@@ -25,5 +25,6 @@ The benchmarks were performed on a Macbook Pro 2021 (M1).
 |CNN_minimal             |           1054.54 mus |       268.37 mus |      215.00 mus |
 |CNN_3layers             |          11615.33 mus |      7471.58 mus |   845676.00 mus |
 |MobilnetV2              |          25823.16 mus |     17536.99 mus |  2033580.00 mus |
+|LSTM                    |            478.45 mus |       115.91 mus |       75.00 mus |
 
 Compilations for real-time targets (with other models) have been performed in the original repo (https://github.com/kraiskil/onnx2c).
